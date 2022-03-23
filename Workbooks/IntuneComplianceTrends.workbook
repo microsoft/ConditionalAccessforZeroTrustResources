@@ -1,0 +1,305 @@
+{
+  "version": "Notebook/1.0",
+  "items": [
+    {
+      "type": 1,
+      "content": {
+        "json": "# Compliance Trend Workbook\r\n---\r\n\r\nCompliance Trend Workbook in Contoso\r\n\r\nThe purpose of this dashboard is to give you full oversight of your Windows client compliance health. \r\n\r\n**Note:** Figures are updated on a 24 hour cycle."
+      },
+      "name": "text - 6"
+    },
+    {
+      "type": 9,
+      "content": {
+        "version": "KqlParameterItem/1.0",
+        "parameters": [
+          {
+            "id": "56f27f59-3a6a-46ea-98b7-a7b358e026c5",
+            "version": "KqlParameterItem/1.0",
+            "name": "TimeRange",
+            "type": 4,
+            "value": {
+              "durationMs": 5184000000
+            },
+            "typeSettings": {
+              "selectableValues": [
+                {
+                  "durationMs": 300000
+                },
+                {
+                  "durationMs": 900000
+                },
+                {
+                  "durationMs": 1800000
+                },
+                {
+                  "durationMs": 3600000
+                },
+                {
+                  "durationMs": 14400000
+                },
+                {
+                  "durationMs": 43200000
+                },
+                {
+                  "durationMs": 86400000
+                },
+                {
+                  "durationMs": 172800000
+                },
+                {
+                  "durationMs": 259200000
+                },
+                {
+                  "durationMs": 604800000
+                },
+                {
+                  "durationMs": 1209600000
+                },
+                {
+                  "durationMs": 2419200000
+                },
+                {
+                  "durationMs": 2592000000
+                },
+                {
+                  "durationMs": 5184000000
+                },
+                {
+                  "durationMs": 7776000000
+                }
+              ]
+            }
+          },
+          {
+            "id": "880615f7-2a3f-45dd-b08b-8a1b4528db90",
+            "version": "KqlParameterItem/1.0",
+            "name": "username",
+            "type": 1,
+            "value": "",
+            "timeContext": {
+              "durationMs": 86400000
+            }
+          },
+          {
+            "id": "9f813c8a-cbbb-430c-94f2-c653326b432d",
+            "version": "KqlParameterItem/1.0",
+            "name": "DeviceName",
+            "type": 1,
+            "value": ""
+          }
+        ],
+        "style": "pills",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces"
+      },
+      "name": "Choose Timerange and user"
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "IntuneDeviceComplianceOrg \r\n| where UPN has \"{username}\" and DeviceName has \"{DeviceName}\"\r\n| project TimeGenerated, ComplianceState, DeviceName, UPN, LastContact, DeviceId\r\n| sort by TimeGenerated",
+        "size": 0,
+        "timeContext": {
+          "durationMs": 5184000000
+        },
+        "timeContextFromParameter": "TimeRange",
+        "queryType": 0,
+        "resourceType": "microsoft.operationalinsights/workspaces"
+      },
+      "name": "query - 6"
+    },
+    {
+      "type": 12,
+      "content": {
+        "version": "NotebookGroup/1.0",
+        "groupType": "editable",
+        "items": [
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "let ComplianceLogs= \r\nIntuneOperationalLogs  \r\n| where OperationName == \"Compliance\"  \r\n| project TimeGenerated, Properties; \r\nComplianceLogs \r\n| sort by TimeGenerated desc \r\n| join ( \r\nComplianceLogs \r\n| extend myJson = todynamic(Properties) \r\n| project-away Properties \r\n| extend IntuneDeviceId=tostring(myJson[\"IntuneDeviceId\"])\r\n| project TimeGenerated, IntuneDeviceId\r\n| summarize TimeGenerated=max(TimeGenerated) by IntuneDeviceId \r\n) on TimeGenerated \r\n| project-away TimeGenerated1, IntuneDeviceId   \r\n| extend myJson=todynamic(Properties) \r\n| project-away Properties \r\n| extend Description=tostring(myJson[\"Description\"]) \r\n| extend Description=tostring(extract(\"(.*?)_IID_.*\", 1, tostring(Description))) \r\n| extend Reason = tostring(extract(\"(.*?)\\\\.(.*)\", 2, tostring(Description))) \r\n| extend StartTimeUtc=tostring(myJson[\"StartTimeUtc\"]), UserName=tostring(myJson[\"UserName\"]), UserDisplayName=tostring(myJson[\"UserName\"]), DeviceHostName=tostring(myJson[\"DeviceHostName\"]), DeviceDNSName=tostring(myJson[\"DeviceDNSName\"]), DeviceOS=tostring(myJson[\"DeviceOperatingSystem\"])\r\n| extend dateandtime=format_datetime(todatetime(StartTimeUtc),'yyyy-MM-dd : hh:mm:ss')\r\n| summarize FailureCount=count() by Reason",
+              "size": 3,
+              "title": "Reason for NON Compliant last 30 days",
+              "timeContext": {
+                "durationMs": 2592000000
+              },
+              "queryType": 0,
+              "resourceType": "microsoft.operationalinsights/workspaces",
+              "visualization": "piechart"
+            },
+            "customWidth": "40",
+            "name": "query - 5"
+          },
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "\r\nlet ComplianceLogs= \r\nIntuneOperationalLogs  \r\n| where OperationName == \"Compliance\"  \r\n| project TimeGenerated, Properties; \r\nComplianceLogs \r\n| sort by TimeGenerated desc \r\n| join ( \r\nComplianceLogs \r\n| extend myJson = todynamic(Properties) \r\n| project-away Properties \r\n| extend IntuneDeviceId=tostring(myJson[\"IntuneDeviceId\"])\r\n| project TimeGenerated, IntuneDeviceId\r\n| summarize TimeGenerated=max(TimeGenerated) by IntuneDeviceId \r\n) on TimeGenerated \r\n| project-away TimeGenerated1, IntuneDeviceId   \r\n| extend myJson=todynamic(Properties) \r\n| project-away Properties \r\n| extend Description=tostring(myJson[\"Description\"]) \r\n| extend Description=tostring(extract(\"(.*?)_IID_.*\", 1, tostring(Description))) \r\n| extend Reason = tostring(extract(\"(.*?)\\\\.(.*)\", 2, tostring(Description))) \r\n| extend StartTimeUtc=tostring(myJson[\"StartTimeUtc\"]), UserName=tostring(myJson[\"UserName\"]), UserDisplayName=tostring(myJson[\"UserName\"]), DeviceHostName=tostring(myJson[\"DeviceHostName\"]), DeviceDNSName=tostring(myJson[\"DeviceDNSName\"]), DeviceOS=tostring(myJson[\"DeviceOperatingSystem\"])\r\n| extend dateandtime=format_datetime(todatetime(StartTimeUtc),'yyyy-MM-dd : hh:mm:ss')\r\n| where UserName has \"{username}\" \r\n| summarize by UserName, Reason, DeviceHostName, DeviceOS, dateandtime\r\n| sort by UserName desc",
+              "size": 0,
+              "title": "Reason for incompliance",
+              "timeContext": {
+                "durationMs": 5184000000
+              },
+              "timeContextFromParameter": "TimeRange",
+              "showExportToExcel": true,
+              "queryType": 0,
+              "resourceType": "microsoft.operationalinsights/workspaces",
+              "gridSettings": {
+                "sortBy": [
+                  {
+                    "itemKey": "dateandtime",
+                    "sortOrder": 1
+                  }
+                ]
+              },
+              "sortBy": [
+                {
+                  "itemKey": "dateandtime",
+                  "sortOrder": 1
+                }
+              ]
+            },
+            "customWidth": "60",
+            "name": "Reason for incompliance"
+          }
+        ]
+      },
+      "name": "group - 6"
+    },
+    {
+      "type": 12,
+      "content": {
+        "version": "NotebookGroup/1.0",
+        "groupType": "editable",
+        "items": [
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "IntuneDeviceComplianceOrg \r\n| project ComplianceState, DeviceName\r\n| summarize count(DeviceName) by ComplianceState",
+              "size": 3,
+              "title": "Overall Compliance",
+              "timeContext": {
+                "durationMs": 86400000
+              },
+              "queryType": 0,
+              "resourceType": "microsoft.operationalinsights/workspaces",
+              "visualization": "piechart",
+              "graphSettings": {
+                "type": 0,
+                "topContent": {
+                  "columnMatch": "ComplianceState",
+                  "formatter": 1
+                },
+                "centerContent": {
+                  "columnMatch": "count_DeviceName",
+                  "formatter": 1,
+                  "numberFormat": {
+                    "unit": 17,
+                    "options": {
+                      "maximumSignificantDigits": 3,
+                      "maximumFractionDigits": 2
+                    }
+                  }
+                },
+                "nodeIdField": "ComplianceState",
+                "sourceIdField": "ComplianceState",
+                "targetIdField": "count_DeviceName",
+                "graphOrientation": 3,
+                "showOrientationToggles": false,
+                "nodeSize": null,
+                "staticNodeSize": 100,
+                "colorSettings": null,
+                "hivesMargin": 5
+              },
+              "chartSettings": {
+                "xAxis": "ComplianceState",
+                "seriesLabelSettings": [
+                  {
+                    "seriesName": "Compliant",
+                    "color": "green"
+                  },
+                  {
+                    "seriesName": "Managed by Configuration Manager",
+                    "color": "gray"
+                  },
+                  {
+                    "seriesName": "Not compliant",
+                    "color": "redBright"
+                  },
+                  {
+                    "seriesName": "Not evaluated",
+                    "color": "blue"
+                  },
+                  {
+                    "seriesName": "In grace period",
+                    "color": "orange"
+                  }
+                ],
+                "xSettings": {
+                  "numberFormatSettings": {
+                    "unit": 0,
+                    "options": {
+                      "style": "decimal",
+                      "useGrouping": true
+                    }
+                  }
+                }
+              }
+            },
+            "customWidth": "40",
+            "name": "query - 4"
+          },
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "IntuneDeviceComplianceOrg \r\n| where ComplianceState <> \"Compliant\"\r\n| where DeviceName has \"{DeviceName}\"\r\n| where ComplianceState <> \"Managed by Configuration Manager\"\r\n| extend DeviceUrl = strcat('https://endpoint.microsoft.com/#blade/Microsoft_Intune_Devices/DeviceSettingsBlade/overview/mdmDeviceId/', DeviceId) \r\n| project DeviceName, UPN, ComplianceState, LastContact\r\n",
+              "size": 0,
+              "title": "Devices | Not Compliant | Not Evaluated",
+              "noDataMessageStyle": 4,
+              "timeContext": {
+                "durationMs": 86400000
+              },
+              "showExportToExcel": true,
+              "queryType": 0,
+              "resourceType": "microsoft.operationalinsights/workspaces",
+              "visualization": "table",
+              "gridSettings": {
+                "labelSettings": [
+                  {
+                    "columnId": "ComplianceState",
+                    "label": "Compliance State"
+                  }
+                ]
+              }
+            },
+            "customWidth": "60",
+            "name": "query - 0"
+          },
+          {
+            "type": 3,
+            "content": {
+              "version": "KqlItem/1.0",
+              "query": "IntuneDeviceComplianceOrg \r\n| where ComplianceState == \"Managed by Configuration Manager\"\r\n| where DeviceName has \"{DeviceName}\"\r\n| project DeviceName, UPN, ComplianceState, LastContact",
+              "size": 0,
+              "title": "Devices | Managed by Configuration Manager",
+              "timeContext": {
+                "durationMs": 86400000
+              },
+              "showExportToExcel": true,
+              "queryType": 0,
+              "resourceType": "microsoft.operationalinsights/workspaces"
+            },
+            "name": "query - 2"
+          }
+        ]
+      },
+      "name": "Non Compliant devices"
+    }
+  ],
+  "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json"
+}
