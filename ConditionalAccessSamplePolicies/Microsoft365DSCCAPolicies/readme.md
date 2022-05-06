@@ -5,6 +5,7 @@ the CA framework configured for Zero Trust. Follow the process below
 - Launch a terminal with "Windows Powershell" as local admin
 - install Microsoft365DSC with dependencies. See more at https://microsoft365dsc.com 
 - create a local folder <m365dsccapoliciesfolder> and change to this folder
+- download ConfigurationData.psd1 to same folder
 - execute .\M365TenantConfig.ps1 -Credential $creds, where $creds has your AAD user with permissions to create AAD CA policies
   WARNING!!! This creates a local mof file with the password stored, so if you continue applying this policy using a user, 
   you should/must delete the file straight after applying CA policies or rather use a service principal with Microsoft365.
