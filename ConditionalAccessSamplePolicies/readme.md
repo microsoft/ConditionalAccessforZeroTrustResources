@@ -18,7 +18,9 @@ Prerequisites for Microsoft365DSC usage
 
 Verify MS Graph grant permissions
 
-Connect with the Microsoft Graph API and grant admin consent when prompted
+Update-M365DSCAllowedGraphScopes or Connect with the Microsoft Graph API and grant admin consent when prompted
+Connect-MgGraph -TenantId "Azure AD tenant id guid" -Scopes 
+
 https://microsoft365dsc.com/user-guide/get-started/authentication-and-permissions/
 
-Connect-MgGraph -TenantId "Azure AD tenant id guid" -Scopes 
+
