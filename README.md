@@ -8,8 +8,9 @@ https://docs.microsoft.com/en-us/azure/architecture/guide/security/conditional-a
 https://www.linkedin.com/posts/claus-jespersen-25b0422_conditional-access-guidance-december-2021-ugcPost-6872879150634450944-TXP5?utm_source=linkedin_share&utm_medium=member_desktop_web.
 
 - ConditionalAccessSamplePolicies folder holds an Excel Spreadsheet documenting the suggested set of policies
-- ConditionalAccessSamplePolicies\Microsoft365DSCCAGroups has a Microsoft365dsc file to automate the creation of groups used for the CA policies
-- ConditionalAccessSamplePolicies\Microsoft365DSCCAPolicies has a Microsoft365dsc file to automate the creation of CA policies 
+- ConditionalAccessSamplePolicies\Microsoft365DSCCAGroups folder has a Microsoft365dsc file to automate the creation of groups used for the CA policies
+- ConditionalAccessSamplePolicies\Microsoft365DSCCAPolicies folder has a Microsoft365dsc file to automate the creation of CA policies 
+- Workbooks folder has enhanced workbooks to look at CA policies and compliancy as well as a troubleshooing solution for Always-On VPN including a workbook for that.
 
 se other readme files in the sub-folders for further details.
 
