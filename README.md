@@ -1,7 +1,13 @@
 # Project
 
-This repository holds some Conditional Access resources that complement the Azure Architecture design note "Conditional Access Guidance for Zero Trust" soon to be published".
-Initially only an Excel spreadsheet will be posted that holds some sample starter CA policies based on the CA guidance. Later other complementary resources may be uploaded to this repo or Wiki.
+This repository holds some Conditional Access resources that complement the Azure Architecture design note "Conditional Access Guidance for Zero Trust".
+See more here for a description on CA configured for Zero Trust https://docs.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-zero-trust?msclkid=d1768a34ceda11ec9b6c8f244f8d05bd and https://www.linkedin.com/posts/claus-jespersen-25b0422_conditional-access-guidance-december-2021-ugcPost-6872879150634450944-TXP5?utm_source=linkedin_share&utm_medium=member_desktop_web.
+
+- ConditionalAccessSamplePolicies folder holds an Excel Spreadsheet documenting the suggested set of policies
+- ConditionalAccessSamplePolicies\Microsoft365DSCCAGroups has a Microsoft365dsc file to automate the creation of groups used for the CA policies
+- ConditionalAccessSamplePolicies\Microsoft365DSCCAPolicies has a Microsoft365dsc file to automate the creation of CA policies 
+
+se other readme files in the sub-folders for further details.
 
 ## Contributing
 
