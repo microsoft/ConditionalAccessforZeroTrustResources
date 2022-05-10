@@ -11,8 +11,9 @@ https://www.linkedin.com/posts/claus-jespersen-25b0422_conditional-access-guidan
 - ConditionalAccessSamplePolicies\Microsoft365DSCCAGroups folder has a Microsoft365dsc file to automate the creation of groups used for the CA policies
 - ConditionalAccessSamplePolicies\Microsoft365DSCCAPolicies folder has a Microsoft365dsc file to automate the creation of CA policies 
 - Workbooks folder has enhanced workbooks to look at CA policies and compliancy as well as a troubleshooing solution for Always-On VPN including a workbook for that.
+- Presentations folder has a few presentations that I have given about CA configured for Zero Trust
 
-se other readme files in the sub-folders for further details.
+see other readme files in the sub-folders for further details.
 
 ## Contributing
 
