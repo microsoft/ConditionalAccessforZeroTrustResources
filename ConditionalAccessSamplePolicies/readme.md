@@ -1,6 +1,8 @@
-This folder has an Excel spreadsheet with suggested CA policies.
-Also two sepeparate folders have Microsoft365DSC files for easy/automated deployment of CA groups and policies. 
-I have not been able to get it working with groups and CA policies in one policy, hence two separate. Follow instructions in the readme file in the folders
+This folder has CA policies as json files. If you want to look at suggested CA policies in an Excel Spreadsheet, you can find it here
+https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Farch-center.azureedge.net%2FConditional-Access-policies-for-personas-2.xlsx&wdOrigin=BROWSELINK
+
+Two sepeparate folders have Microsoft365DSC files for easy/automated deployment of CA groups and policies. 
+Follow instructions in the readme file in the folders
 
 See more here for a description on CA configured for Zero Trust
 https://docs.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-zero-trust?msclkid=d1768a34ceda11ec9b6c8f244f8d05bd 
