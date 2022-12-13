@@ -1,5 +1,4 @@
-This folder has CA policies as json files. If you want to look at suggested CA policies in an Excel Spreadsheet, you can find it here
-https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Farch-center.azureedge.net%2FConditional-Access-policies-for-personas-2.xlsx&wdOrigin=BROWSELINK
+This folder has CA policies as json files as well as an Excel Spreadsheet.
 
 Two sepeparate folders have Microsoft365DSC files for easy/automated deployment of CA groups and policies. 
 Follow instructions in the readme file in the folders
