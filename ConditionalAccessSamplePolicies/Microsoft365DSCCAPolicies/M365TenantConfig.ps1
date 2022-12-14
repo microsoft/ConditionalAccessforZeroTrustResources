@@ -984,7 +984,7 @@ Configuration M365TenantConfig
             CloudAppSecurityIsEnabled                = $False;
             CloudAppSecurityType                     = "";
             Credential                               = $Credscredential;
-            DisplayName                              = "CA402-Guests-IdentityProtection-AllApps-AnyPlatform-MFAforMediumandHighSign-InRisk";
+            DisplayName                              = "CA402-Guests-IdentityProtection-AllApps-AnyPlatform-MFAforMediumandHighUserandSignInRisk";
             Ensure                                   = "Present";
             ExcludeApplications                      = @();
             ExcludeDevices                           = @();
@@ -1009,7 +1009,7 @@ Configuration M365TenantConfig
             SignInFrequencyType                      = "";
             SignInRiskLevels                         = @("high","medium");
             State                                    = "disabled";
-            UserRiskLevels                           = @();
+            UserRiskLevels                           = @("high","medium");
         }
         AADConditionalAccessPolicy 6928a00d-ecab-4911-9211-416642a46f1d
         {
@@ -1124,7 +1124,7 @@ Configuration M365TenantConfig
             CloudAppSecurityIsEnabled                = $False;
             CloudAppSecurityType                     = "";
             Credential                               = $Credscredential;
-            DisplayName                              = "CA502-GuestAdmins-IdentityProtection-AllApps-AnyPlatform-MFAforMediumandHighSignInRisk";
+            DisplayName                              = "CA502-GuestAdmins-IdentityProtection-AllApps-AnyPlatform-MFAforMediumandHighUserandSignInRisk";
             Ensure                                   = "Present";
             ExcludeApplications                      = @();
             ExcludeDevices                           = @();
@@ -1149,7 +1149,7 @@ Configuration M365TenantConfig
             SignInFrequencyType                      = "";
             SignInRiskLevels                         = @("high","medium");
             State                                    = "disabled";
-            UserRiskLevels                           = @();
+            UserRiskLevels                           = @("high","medium");
         }
         AADConditionalAccessPolicy 41d1b23f-db0c-418c-afc9-822cede1907e
         {
