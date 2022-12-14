@@ -1537,6 +1537,45 @@ Configuration M365TenantConfig
             State                                    = "disabled";
             UserRiskLevels                           = @();
         }
+        AADConditionalAccessPolicy 4bc4e725-9ed1-430b-b275-39bfd7fbc6bd
+        {
+            ApplicationEnforcedRestrictionsIsEnabled = $False;
+            ApplicationId                            = $ConfigurationData.NonNodeData.ApplicationId;
+            ApplicationSecret                        = New-Object System.Management.Automation.PSCredential ('ApplicationSecret', (ConvertTo-SecureString $ConfigurationData.NonNodeData.ApplicationSecret -AsPlainText -Force));
+            BuiltInControls                          = @();
+            ClientAppTypes                           = @("all");
+            CloudAppSecurityIsEnabled                = $False;
+            CloudAppSecurityType                     = "";
+            CustomAuthenticationFactors              = @();
+            DeviceFilterRule                         = "";
+            DisplayName                              = "CA406-Guests-DataProtection-AllApps-AnyPlatform-SignInSessionPolicy";
+            Ensure                                   = "Present";
+            ExcludeApplications                      = @();
+            ExcludeDevices                           = @();
+            ExcludeGroups                            = @("CA-BreakGlassAccount","CA-Persona-Guests-DataProtection-Exclusions");
+            ExcludeLocations                         = @();
+            ExcludePlatforms                         = @();
+            ExcludeRoles                             = @();
+            ExcludeUsers                             = @();
+            Id                                       = "16aa3b43-b03f-4e16-9172-e13391cd5f91";
+            IncludeApplications                      = @("All");
+            IncludeDevices                           = @();
+            IncludeGroups                            = @("CA-Persona-Guests");
+            IncludeLocations                         = @();
+            IncludePlatforms                         = @();
+            IncludeRoles                             = @();
+            IncludeUserActions                       = @();
+            IncludeUsers                             = @();
+            PersistentBrowserIsEnabled               = $True;
+            PersistentBrowserMode                    = "never";
+            SignInFrequencyIsEnabled                 = $True;
+            SignInFrequencyType                      = "hours";
+            SignInFrequencyValue                     = 1;
+            SignInRiskLevels                         = @();
+            State                                    = "disabled";
+            TenantId                                 = $ConfigurationData.NonNodeData.TenantId;
+            UserRiskLevels                           = @();
+        }
         AADConditionalAccessPolicy d1b89341-daa3-4343-ad49-64401bc010b5
         {
             ApplicationEnforcedRestrictionsIsEnabled = $False;
@@ -1570,6 +1609,45 @@ Configuration M365TenantConfig
             SignInFrequencyType                      = "";
             SignInRiskLevels                         = @();
             State                                    = "disabled";
+            UserRiskLevels                           = @();
+        }
+        AADConditionalAccessPolicy 7c384b11-1a13-4461-8c78-7e4ea19e8d46
+        {
+            ApplicationEnforcedRestrictionsIsEnabled = $False;
+            ApplicationId                            = $ConfigurationData.NonNodeData.ApplicationId;
+            ApplicationSecret                        = New-Object System.Management.Automation.PSCredential ('ApplicationSecret', (ConvertTo-SecureString $ConfigurationData.NonNodeData.ApplicationSecret -AsPlainText -Force));
+            BuiltInControls                          = @();
+            ClientAppTypes                           = @("all");
+            CloudAppSecurityIsEnabled                = $False;
+            CloudAppSecurityType                     = "";
+            CustomAuthenticationFactors              = @();
+            DeviceFilterRule                         = "";
+            DisplayName                              = "CA506-GuestAdmins-DataProtection-AllApps-AnyPlatform-SignInSessionPolicy";
+            Ensure                                   = "Present";
+            ExcludeApplications                      = @();
+            ExcludeDevices                           = @();
+            ExcludeGroups                            = @("CA-BreakGlassAccount","CA-Persona-GuestAdmins-DataProtection-Exclusions");
+            ExcludeLocations                         = @();
+            ExcludePlatforms                         = @();
+            ExcludeRoles                             = @();
+            ExcludeUsers                             = @();
+            Id                                       = "700c5cdc-c4d2-4c37-abca-abc4dc00c3c1";
+            IncludeApplications                      = @("All");
+            IncludeDevices                           = @();
+            IncludeGroups                            = @("CA-Persona-GuestAdmins");
+            IncludeLocations                         = @();
+            IncludePlatforms                         = @();
+            IncludeRoles                             = @();
+            IncludeUserActions                       = @();
+            IncludeUsers                             = @();
+            PersistentBrowserIsEnabled               = $True;
+            PersistentBrowserMode                    = "never";
+            SignInFrequencyIsEnabled                 = $True;
+            SignInFrequencyType                      = "hours";
+            SignInFrequencyValue                     = 1;
+            SignInRiskLevels                         = @();
+            State                                    = "disabled";
+            TenantId                                 = $ConfigurationData.NonNodeData.TenantId;
             UserRiskLevels                           = @();
         }
         AADConditionalAccessPolicy 4d030164-13ce-4576-a6b8-8f55e30e7d0d
