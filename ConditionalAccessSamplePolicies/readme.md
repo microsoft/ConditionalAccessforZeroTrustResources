@@ -1,4 +1,4 @@
-This folder has CA policies as json files as well as an Excel Spreadsheet.
+This folder has CA policies as Microsoft365DSC files as well as an Excel Spreadsheet.
 
 Two sepeparate folders have Microsoft365DSC files for easy/automated deployment of CA groups and policies. 
 Follow instructions in the readme file in the folders
