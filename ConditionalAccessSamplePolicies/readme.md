@@ -4,6 +4,7 @@ Two sepeparate folders have Microsoft365DSC files for easy/automated deployment 
 Follow instructions in the readme file in the folders
 
 See more here for a description on CA configured for Zero Trust
+
 https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-zero-trust
 https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-framework
 
