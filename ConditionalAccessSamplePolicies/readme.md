@@ -6,6 +6,7 @@ Follow instructions in the readme file in the folders
 See more here for a description on CA configured for Zero Trust
 
 https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-zero-trust
+
 https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-framework
 
 https://www.linkedin.com/posts/claus-jespersen-25b0422_conditional-access-guidance-december-2021-ugcPost-6872879150634450944-TXP5?utm_source=linkedin_share&utm_medium=member_desktop_web
