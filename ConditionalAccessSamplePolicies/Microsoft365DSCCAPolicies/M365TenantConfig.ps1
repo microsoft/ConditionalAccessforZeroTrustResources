@@ -1540,12 +1540,11 @@ Configuration M365TenantConfig
         AADConditionalAccessPolicy 4bc4e725-9ed1-430b-b275-39bfd7fbc6bd
         {
             ApplicationEnforcedRestrictionsIsEnabled = $False;
-            ApplicationId                            = $ConfigurationData.NonNodeData.ApplicationId;
-            ApplicationSecret                        = New-Object System.Management.Automation.PSCredential ('ApplicationSecret', (ConvertTo-SecureString $ConfigurationData.NonNodeData.ApplicationSecret -AsPlainText -Force));
             BuiltInControls                          = @();
             ClientAppTypes                           = @("all");
             CloudAppSecurityIsEnabled                = $False;
             CloudAppSecurityType                     = "";
+            Credential                               = $Credscredential;
             CustomAuthenticationFactors              = @();
             DeviceFilterRule                         = "";
             DisplayName                              = "CA406-Guests-DataProtection-AllApps-AnyPlatform-SignInSessionPolicy";
@@ -1573,7 +1572,6 @@ Configuration M365TenantConfig
             SignInFrequencyValue                     = 1;
             SignInRiskLevels                         = @();
             State                                    = "disabled";
-            TenantId                                 = $ConfigurationData.NonNodeData.TenantId;
             UserRiskLevels                           = @();
         }
         AADConditionalAccessPolicy d1b89341-daa3-4343-ad49-64401bc010b5
@@ -1614,12 +1612,11 @@ Configuration M365TenantConfig
         AADConditionalAccessPolicy 7c384b11-1a13-4461-8c78-7e4ea19e8d46
         {
             ApplicationEnforcedRestrictionsIsEnabled = $False;
-            ApplicationId                            = $ConfigurationData.NonNodeData.ApplicationId;
-            ApplicationSecret                        = New-Object System.Management.Automation.PSCredential ('ApplicationSecret', (ConvertTo-SecureString $ConfigurationData.NonNodeData.ApplicationSecret -AsPlainText -Force));
             BuiltInControls                          = @();
             ClientAppTypes                           = @("all");
             CloudAppSecurityIsEnabled                = $False;
             CloudAppSecurityType                     = "";
+            Credential                               = $Credscredential;
             CustomAuthenticationFactors              = @();
             DeviceFilterRule                         = "";
             DisplayName                              = "CA506-GuestAdmins-DataProtection-AllApps-AnyPlatform-SignInSessionPolicy";
@@ -1647,7 +1644,6 @@ Configuration M365TenantConfig
             SignInFrequencyValue                     = 1;
             SignInRiskLevels                         = @();
             State                                    = "disabled";
-            TenantId                                 = $ConfigurationData.NonNodeData.TenantId;
             UserRiskLevels                           = @();
         }
         AADConditionalAccessPolicy 4d030164-13ce-4576-a6b8-8f55e30e7d0d
