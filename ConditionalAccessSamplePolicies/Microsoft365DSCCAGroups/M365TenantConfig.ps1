@@ -57,13 +57,13 @@ Configuration M365TenantConfig
         AADGroup f369f8a9-92eb-40ef-86db-10ad20473165
         {
             Credential           = $Credscredential;
-            Description          = "CA-Persona-Admins-Comliance-Exclusions";
-            DisplayName          = "CA-Persona-Admins-Comliance-Exclusions";
+            Description          = "CA-Persona-Admins-Compliance-Exclusions";
+            DisplayName          = "CA-Persona-Admins-Compliance-Exclusions";
             Ensure               = "Present";
             GroupTypes           = @();
             Id                   = "0731b01b-3540-4c7f-9ede-54f0ab0968b0";
             MailEnabled          = $False;
-            MailNickname         = "CA-Persona-Admins-Comliance-Exclusions";
+            MailNickname         = "CA-Persona-Admins-Compliance-Exclusions";
             SecurityEnabled      = $True;
         }
         AADGroup 780d9a44-7bfd-49e9-83a7-4805f134be72
