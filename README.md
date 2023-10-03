@@ -5,8 +5,7 @@ See more here for a description on CA configured for Zero Trust
 
 https://docs.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-zero-trust?msclkid=d1768a34ceda11ec9b6c8f244f8d05bd and
 
-https://www.linkedin.com/posts/claus-jespersen-25b0422_conditional-access-guidance-december-2021-ugcPost-6872879150634450944-TXP5?utm_source=linkedin_share&utm_medium=member_desktop_web.
-
+- Detailed guidance as PDF documents on Conditional Access Guidance that complements the formal documentation. Latest updates from October 2023 
 - ConditionalAccessSamplePolicies folder holds an Excel Spreadsheet documenting the suggested set of policies
 - ConditionalAccessSamplePolicies\Microsoft365DSCCAGroups folder has a Microsoft365dsc file to automate the creation of groups used for the CA policies
 - ConditionalAccessSamplePolicies\Microsoft365DSCCAPolicies folder has a Microsoft365dsc file to automate the creation of CA policies 
