@@ -1,7 +1,9 @@
 This folder has CA policies as Microsoft365DSC files as well as an Excel Spreadsheet.
 
 Two sepeparate folders have Microsoft365DSC files for easy/automated deployment of CA groups and policies. 
-Follow instructions in the readme file in the folders
+Follow instructions in the readme file in the folders. 
+
+Please notice that the policies have not yet been fully aligned with latest changes from October 2023, that relate to admin policies and using sign-in frequency everytime where supported.
 
 See more here for a description on CA configured for Zero Trust
 
