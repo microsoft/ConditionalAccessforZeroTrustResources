@@ -1,4 +1,3 @@
-﻿# Generated with Microsoft365DSC version 1.22.420.1
 # For additional information on how to use Microsoft365DSC, please visit https://aka.ms/M365DSC
 param (
     [parameter()]
@@ -26,7 +25,7 @@ Configuration M365TenantConfig
     }
 
     $OrganizationName = $CredsCredential.UserName.Split('@')[1]
-    Import-DscResource -ModuleName 'Microsoft365DSC' -ModuleVersion '1.23.809.1'
+    Import-DscResource -ModuleName 'Microsoft365DSC' -ModuleVersion '1.23.1011.1'
 
     Node localhost
     {
