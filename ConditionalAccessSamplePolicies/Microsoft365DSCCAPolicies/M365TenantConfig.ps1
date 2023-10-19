@@ -26,7 +26,7 @@ Configuration M365TenantConfig
 
     $OrganizationName = $CredsCredential.UserName.Split('@')[1]
 
-    Import-DscResource -ModuleName 'Microsoft365DSC' -ModuleVersion '1.23.1011.1'
+    Import-DscResource -ModuleName 'Microsoft365DSC' -ModuleVersion '1.23.1018.1'
 
     Node localhost
     {
@@ -106,7 +106,7 @@ Configuration M365TenantConfig
             Credential                               = $Credscredential;
             DisplayName                              = "CA100-Admins-BaseProtection-AllApps-AnyPlatform-MFAANDCompliant";
             Ensure                                   = "Present";
-            ExcludeApplications                      = @("d4ebce55-015a-49b5-a083-c84d1797ae8c");
+            ExcludeApplications                      = @("");
             ExcludeGroups                            = @("CA-BreakGlassAccounts","CA-Persona-Admins-BaseProtection-Exclusions","CA-Persona-Microsoft365ServiceAccounts","CA-Persona-AzureServiceAccounts","CA-Persona-CorpServiceAccounts");
             ExcludeLocations                         = @();
             ExcludePlatforms                         = @();
@@ -117,7 +117,7 @@ Configuration M365TenantConfig
             IncludeApplications                      = @("All");
             IncludeGroups                            = @("CA-Persona-Admins");
             IncludeLocations                         = @();
-            IncludePlatforms                         = @("all");
+            IncludePlatforms                         = @();
             IncludeRoles                             = @();
             IncludeUserActions                       = @();
             IncludeUsers                             = @();
@@ -165,7 +165,7 @@ Configuration M365TenantConfig
         AADConditionalAccessPolicy "AADConditionalAccessPolicy-CA102-Admins-IdentityProtection-AllApps-AnyPlatform-MFAandPWDforMediumandHighUserRisk"
         {
             ApplicationEnforcedRestrictionsIsEnabled = $False;
-            BuiltInControls                          = @("mfa","passwordChange");
+            BuiltInControls                          = @("mfa", "passwordChange");
             ClientAppTypes                           = @("all");
             CloudAppSecurityIsEnabled                = $False;
             CloudAppSecurityType                     = "";
@@ -179,7 +179,7 @@ Configuration M365TenantConfig
             ExcludeRoles                             = @();
             ExcludeUsers                             = @();
             GrantControlOperator                     = "AND";
-            Id                                       = "29d61290-8fd1-4923-b937-25166009a4f4";
+            Id                                       = "fd9aba4f-0071-4eb2-b24d-d371a3643444";
             IncludeApplications                      = @("All");
             IncludeGroups                            = @("CA-Persona-Admins");
             IncludeLocations                         = @();
@@ -191,6 +191,8 @@ Configuration M365TenantConfig
             PersistentBrowserMode                    = "";
             SignInFrequencyIsEnabled                 = $True;
             SignInFrequencyType                      = "";
+            SignInFrequencyValue                     = "";
+            SignInFrequencyInterval                  = "everyTime";
             SignInRiskLevels                         = @();
             State                                    = "disabled";
             UserRiskLevels                           = @("high","medium");
@@ -201,6 +203,7 @@ Configuration M365TenantConfig
             BuiltInControls                          = @("mfa");
             ClientAppTypes                           = @("all");
             CloudAppSecurityIsEnabled                = $False;
+
             CloudAppSecurityType                     = "";
             Credential                               = $Credscredential;
             DisplayName                              = "CA103-Admins-IdentityProtection-AllApps-AnyPlatform-MFAforMediumandHighSignInRisk";
@@ -224,6 +227,8 @@ Configuration M365TenantConfig
             PersistentBrowserMode                    = "";
             SignInFrequencyIsEnabled                 = $True;
             SignInFrequencyType                      = "";
+            SignInFrequencyValue                     = "";
+            SignInFrequencyInterval                  = "everyTime";
             SignInRiskLevels                         = @("high","medium");
             State                                    = "disabled";
             UserRiskLevels                           = @();
@@ -290,6 +295,8 @@ Configuration M365TenantConfig
             PersistentBrowserMode                    = "";
             SignInFrequencyIsEnabled                 = $True;
             SignInFrequencyType                      = "";
+            SignInFrequencyValue                     = "";
+            SignInFrequencyInterval                  = "everyTime";            
             SignInRiskLevels                         = @();
             State                                    = "disabled";
             UserRiskLevels                           = @();
@@ -297,7 +304,7 @@ Configuration M365TenantConfig
         AADConditionalAccessPolicy "AADConditionalAccessPolicy-CA106-Admins-DataProtection-AllApps-iOSorAndroid-ClientAppandAPP"
         {
             ApplicationEnforcedRestrictionsIsEnabled = $False;
-            BuiltInControls                          = @("approvedApplication","compliantApplication");
+            BuiltInControls                          = @("approvedApplication","CompliantApplication");
             ClientAppTypes                           = @("all");
             CloudAppSecurityIsEnabled                = $False;
             CloudAppSecurityType                     = "";
@@ -312,7 +319,7 @@ Configuration M365TenantConfig
             ExcludeUsers                             = @();
             GrantControlOperator                     = "OR";
             Id                                       = "f8da41f4-6503-4aaa-9635-afd8928ad462";
-            IncludeApplications                      = @("All");
+            IncludeApplications                      = @("Office365");
             IncludeGroups                            = @("CA-Persona-Admins");
             IncludeLocations                         = @();
             IncludePlatforms                         = @("android","iOS");
@@ -403,7 +410,7 @@ Configuration M365TenantConfig
             Credential                               = $Credscredential;
             DisplayName                              = "CA200-Internals-BaseProtection-AllApps-AnyPlatform-CompliantorAADHJ";
             Ensure                                   = "Present";
-            ExcludeApplications                      = @("d4ebce55-015a-49b5-a083-c84d1797ae8c");
+            ExcludeApplications                      = @();
             ExcludeGroups                            = @("CA-BreakGlassAccounts","CA-Persona-Internals-BaseProtection-Exclusions");
             ExcludeLocations                         = @();
             ExcludePlatforms                         = @();
@@ -476,7 +483,7 @@ Configuration M365TenantConfig
             ExcludeRoles                             = @();
             ExcludeUsers                             = @();
             GrantControlOperator                     = "AND";
-            Id                                       = "e41f5940-de1a-41fb-ad85-97257bbee407";
+            Id                                       = "dc62ae2d-aac1-43ee-934b-c23fae9f8648";
             IncludeApplications                      = @("All");
             IncludeGroups                            = @("CA-Persona-Internals");
             IncludeLocations                         = @();
@@ -486,8 +493,7 @@ Configuration M365TenantConfig
             IncludeUsers                             = @();
             PersistentBrowserIsEnabled               = $False;
             PersistentBrowserMode                    = "";
-            SignInFrequencyIsEnabled                 = $True;
-            SignInFrequencyType                      = "";
+            SignInFrequencyIsEnabled                 = $False;
             SignInRiskLevels                         = @();
             State                                    = "disabled";
             UserRiskLevels                           = @("high");
@@ -521,6 +527,8 @@ Configuration M365TenantConfig
             PersistentBrowserMode                    = "";
             SignInFrequencyIsEnabled                 = $True;
             SignInFrequencyType                      = "";
+            SignInFrequencyValue                     = "";
+            SignInFrequencyInterval                  = "everyTime";
             SignInRiskLevels                         = @("high");
             State                                    = "disabled";
             UserRiskLevels                           = @();
@@ -587,6 +595,8 @@ Configuration M365TenantConfig
             PersistentBrowserMode                    = "";
             SignInFrequencyIsEnabled                 = $True;
             SignInFrequencyType                      = "";
+            SignInFrequencyValue                     = "";
+            SignInFrequencyInterval                  = "everyTime";
             SignInRiskLevels                         = @();
             State                                    = "disabled";
             UserRiskLevels                           = @();
@@ -594,7 +604,7 @@ Configuration M365TenantConfig
         AADConditionalAccessPolicy "AADConditionalAccessPolicy-CA206-Internals-DataandAppProtection-AllApps-iOSorAndroid-ClientAppORAPP"
         {
             ApplicationEnforcedRestrictionsIsEnabled = $False;
-            BuiltInControls                          = @("approvedApplication","compliantApplication");
+            BuiltInControls                          = @("approvedApplication","CompliantApplication");
             ClientAppTypes                           = @("all");
             CloudAppSecurityIsEnabled                = $False;
             CloudAppSecurityType                     = "";
@@ -667,7 +677,7 @@ Configuration M365TenantConfig
             Credential                               = $Credscredential;
             DisplayName                              = "CA300-Externals-BaseProtection-AllApps-AnyPlatform-CompliantorAADHJ";
             Ensure                                   = "Present";
-            ExcludeApplications                      = @("d4ebce55-015a-49b5-a083-c84d1797ae8c");
+            ExcludeApplications                      = @();
             ExcludeGroups                            = @("CA-BreakGlassAccounts","CA-Persona-Externals-BaseProtection-Exclusions");
             ExcludeLocations                         = @();
             ExcludePlatforms                         = @();
@@ -740,7 +750,7 @@ Configuration M365TenantConfig
             ExcludeRoles                             = @();
             ExcludeUsers                             = @();
             GrantControlOperator                     = "AND";
-            Id                                       = "07a1ec19-f675-447c-864f-c1379265e470";
+            Id                                       = "e4b4c23a-0d94-4dc7-b585-a33b668c638f";
             IncludeApplications                      = @("All");
             IncludeGroups                            = @("CA-Persona-Externals");
             IncludeLocations                         = @();
@@ -750,8 +760,7 @@ Configuration M365TenantConfig
             IncludeUsers                             = @();
             PersistentBrowserIsEnabled               = $False;
             PersistentBrowserMode                    = "";
-            SignInFrequencyIsEnabled                 = $True;
-            SignInFrequencyType                      = "";
+            SignInFrequencyIsEnabled                 = $False;
             SignInRiskLevels                         = @();
             State                                    = "disabled";
             UserRiskLevels                           = @("high");
@@ -785,6 +794,8 @@ Configuration M365TenantConfig
             PersistentBrowserMode                    = "";
             SignInFrequencyIsEnabled                 = $True;
             SignInFrequencyType                      = "";
+            SignInFrequencyValue                     = "";
+            SignInFrequencyInterval                  = "everyTime";
             SignInRiskLevels                         = @("high");
             State                                    = "disabled";
             UserRiskLevels                           = @();
@@ -851,6 +862,8 @@ Configuration M365TenantConfig
             PersistentBrowserMode                    = "";
             SignInFrequencyIsEnabled                 = $True;
             SignInFrequencyType                      = "";
+            SignInFrequencyValue                     = "";
+            SignInFrequencyInterval                  = "everyTime";            
             SignInRiskLevels                         = @();
             State                                    = "disabled";
             UserRiskLevels                           = @();
@@ -858,7 +871,7 @@ Configuration M365TenantConfig
         AADConditionalAccessPolicy "AADConditionalAccessPolicy-CA306-Externals-DataandAppProtection-AllApps-iOSorAndroid-ClientAppORAPP"
         {
             ApplicationEnforcedRestrictionsIsEnabled = $False;
-            BuiltInControls                          = @("approvedApplication","compliantApplication");
+            BuiltInControls                          = @("approvedApplication","CompliantApplication");
             ClientAppTypes                           = @("all");
             CloudAppSecurityIsEnabled                = $False;
             CloudAppSecurityType                     = "";
@@ -950,6 +963,8 @@ Configuration M365TenantConfig
             PersistentBrowserMode                    = "";
             SignInFrequencyIsEnabled                 = $True;
             SignInFrequencyType                      = "";
+            SignInFrequencyValue                     = "";
+            SignInFrequencyInterval                  = "everyTime";
             SignInRiskLevels                         = @("high","medium");
             State                                    = "disabled";
             UserRiskLevels                           = @();
@@ -1082,6 +1097,8 @@ Configuration M365TenantConfig
             PersistentBrowserMode                    = "";
             SignInFrequencyIsEnabled                 = $True;
             SignInFrequencyType                      = "";
+            SignInFrequencyValue                     = "";
+            SignInFrequencyInterval                  = "everyTime";
             SignInRiskLevels                         = @("high","medium");
             State                                    = "disabled";
             UserRiskLevels                           = @();
@@ -1625,7 +1642,7 @@ Configuration M365TenantConfig
             Credential                               = $Credscredential;
             DisplayName                              = "CA1000-Developers-BaseProtection-AllApps-AnyPlatform-ForwardToDefenderforCloudApps";
             Ensure                                   = "Present";
-            ExcludeApplications                      = @("d4ebce55-015a-49b5-a083-c84d1797ae8c");
+            ExcludeApplications                      = @();
             ExcludeGroups                            = @("CA-BreakGlassAccounts","CA-Persona-Developers-BaseProtection-Exclusions");
             ExcludeLocations                         = @();
             ExcludePlatforms                         = @();
@@ -1730,7 +1747,7 @@ Configuration M365TenantConfig
             ExcludeRoles                             = @();
             ExcludeUsers                             = @();
             GrantControlOperator                     = "AND";
-            Id                                       = "f0bde400-47e4-4fb0-b720-f73f412ee6c5";
+            Id                                       = "6289e358-d106-4f94-8895-8e864eb9a980";
             IncludeApplications                      = @("All");
             IncludeGroups                            = @("CA-Persona-Developers");
             IncludeLocations                         = @();
@@ -1740,8 +1757,7 @@ Configuration M365TenantConfig
             IncludeUsers                             = @();
             PersistentBrowserIsEnabled               = $False;
             PersistentBrowserMode                    = "";
-            SignInFrequencyIsEnabled                 = $True;
-            SignInFrequencyType                      = "";
+            SignInFrequencyIsEnabled                 = $False;
             SignInRiskLevels                         = @();
             State                                    = "disabled";
             UserRiskLevels                           = @("high","medium");
@@ -1775,6 +1791,8 @@ Configuration M365TenantConfig
             PersistentBrowserMode                    = "";
             SignInFrequencyIsEnabled                 = $True;
             SignInFrequencyType                      = "";
+            SignInFrequencyValue                     = "";
+            SignInFrequencyInterval                  = "everyTime";
             SignInRiskLevels                         = @("high","medium");
             State                                    = "disabled";
             UserRiskLevels                           = @();
@@ -1839,8 +1857,10 @@ Configuration M365TenantConfig
             IncludeUsers                             = @();
             PersistentBrowserIsEnabled               = $False;
             PersistentBrowserMode                    = "";
-            SignInFrequencyIsEnabled                 = $True;
+            SignInFrequencyIsEnabled                 = $True
             SignInFrequencyType                      = "";
+            SignInFrequencyValue                     = "";
+            SignInFrequencyInterval                  = "everyTime";
             SignInRiskLevels                         = @();
             State                                    = "disabled";
             UserRiskLevels                           = @();
@@ -1848,14 +1868,14 @@ Configuration M365TenantConfig
         AADConditionalAccessPolicy "AADConditionalAccessPolicy-CA1007-Developers-DataandAppProtection-AllApps-iOSorAndroid-ClientAppORAPP"
         {
             ApplicationEnforcedRestrictionsIsEnabled = $False;
-            BuiltInControls                          = @("approvedApplication","compliantApplication");
+            BuiltInControls                          = @("approvedApplication","CompliantApplication");
             ClientAppTypes                           = @("all");
             CloudAppSecurityIsEnabled                = $False;
             CloudAppSecurityType                     = "";
             Credential                               = $Credscredential;
             DisplayName                              = "CA1007-Developers-DataandAppProtection-AllApps-iOSorAndroid-ClientAppORAPP";
             Ensure                                   = "Present";
-            ExcludeApplications                      = @("d4ebce55-015a-49b5-a083-c84d1797ae8c");
+            ExcludeApplications                      = @();
             ExcludeGroups                            = @("CA-BreakGlassAccounts","CA-Persona-Developers-AppProtection-Exclusions","CA-Persona-Developers-DataProtection-Exclusions");
             ExcludeLocations                         = @();
             ExcludePlatforms                         = @();
