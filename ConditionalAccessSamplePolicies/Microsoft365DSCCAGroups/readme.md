@@ -9,7 +9,7 @@ These are the groups that are used in the CA configure for Zero Trust approach. 
   WARNING!!! This creates a local mof file with the password stored, so if you continue applying this policy using a user, 
   you should/must delete the file straight after applying groups and/or CA policies or rather use a service principal with Microsoft365.
 - execute connect-mggraph -scopes group.readwrite.all with the "group admin" for the tenant as credential.
-  (you can also do : update-m365dscallowedgraphscopes -resourcenamelist @('AADGroupsSettings') -type Update )
+  (you can also do : update-m365dscallowedgraphscopes -resourcenamelist @('AADGroup') -type Update )
 - execute Start-DSCConfiguration <m365dscgroupsfolder>\m365tenantconfig -wait -force
 - verify in AAD portal that you have the CA related groups created (if not and you get an error, verify CA policies for this user, and consider using SP instead
 - Continue applying CA policies following the guidelines in MicrosoftDSCCAPolicies\readme.md    
