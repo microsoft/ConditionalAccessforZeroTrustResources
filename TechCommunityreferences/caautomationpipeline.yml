@@ -1,0 +1,61 @@
+trigger: 
+- none 
+variables: 
+  - name: TenantId 
+    value: '<yourtenantname>.onmicrosoft.com' 
+  - name: ApplicationId  
+    value: '<App id of your M365DSCWorkloadIdentity SP' 
+pool: 
+  vmImage: windows-latest 
+stages: 
+- stage: Build 
+  jobs: 
+  - job: Build  
+    steps: 
+    - task: AzureKeyVault@2 
+      inputs: 
+        azureSubscription: 'M365DSCConnection' 
+        KeyVaultName: 'M365DSCKeyVault' 
+        SecretsFilter: '*' 
+        RunAsPreJob: false 
+    - task: PowerShell@2 
+      inputs: 
+        targetType: 'filePath' 
+        filePath: 'prep.ps1' 
+        arguments: -m365cert $(m365dsccacert) -dsccertificate $(m365dscsigningcert) 
+        errorActionPreference: 'stop' 
+    - task: PowerShell@2 
+      inputs: 
+        targetType: 'filePath' 
+        filePath: 'build.ps1' 
+        arguments: -m365cert $(m365dsccacert) 
+        errorActionPreference: 'stop' 
+    - task: PublishPipelineArtifact@1 
+      inputs: 
+        targetPath: '$(Pipeline.Workspace)' 
+        artifactName: 'MyPipelineArtifact' 
+        publishLocation: 'pipeline' 
+
+- stage: Deploy 
+  dependsOn: Build 
+  jobs: 
+  - job: Deploy 
+    steps: 
+    - task: AzureKeyVault@2 
+      inputs: 
+        azureSubscription: 'M365DSCConnection' 
+        KeyVaultName: 'CJM365DSCKeyVault' 
+        SecretsFilter: '*' 
+        RunAsPreJob: false 
+    - task: DownloadPipelineArtifact@2 
+      inputs: 
+       artifactName: 'MyPipelineArtifact' 
+       path: '$(Pipeline.Workspace)'         
+    - task: PowerShell@2 
+      inputs: 
+        targetType: 'filePath' 
+        filePath: 'release.ps1' 
+        arguments: -m365cert $(m365dsccacert) -dsccertificate $(m365dscsigningcert)  
+        errorActionPreference: 'stop' 
+
+ 
