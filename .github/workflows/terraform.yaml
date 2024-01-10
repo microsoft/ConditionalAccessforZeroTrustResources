@@ -1,18 +1,18 @@
 name: 'Terraform Plan/Apply'
 
-on:
-  push:
-    branches:
-    - master
-    paths:
-    - '.github/workflows/terraform.yaml'
-    - 'ConditionalAccessSamplePoliciesTerraform/**'
+#on:
+#  push:
+#    branches:
+#    - master
+#    paths:
+#    - '.github/workflows/terraform.yaml'
+#    - 'ConditionalAccessSamplePoliciesTerraform/**'
     
-  pull_request:
-    branches:
-    - master
-    paths:
-    - 'ConditionalAccessSamplePoliciesTerraform/**'
+#  pull_request:
+#    branches:
+#    - master
+#    paths:
+#    - 'ConditionalAccessSamplePoliciesTerraform/**'
 
 
 #Special permissions required for OIDC authentication
