@@ -13,6 +13,7 @@ https://docs.microsoft.com/en-us/azure/architecture/guide/security/conditional-a
 - Presentations folder has a few presentations that I have given about CA configured for Zero Trust
 
 see other readme files in the sub-folders for further details.
+PS! I would like to thank contributors, and those who have made PRs. This is much appreciated. If I am too slow in looking at and potentially approve any PRs, feel free to ping me on channels like LinkedIn for us to have a chat. 
 
 ## Contributing
 
