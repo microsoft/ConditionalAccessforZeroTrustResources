@@ -1,4 +1,4 @@
-This folder has a file that is a Microsoft365DSC file format. You can use it to automatically apply CA related groups in your Azure AD tenant. 
+This folder has a file that is a Microsoft365DSC file format. You can use it to automatically apply CA related groups in your Entra ID tenant. 
 These are the groups that are used in the CA configure for Zero Trust approach. Follow the process below
 - Use Windows 10/11
 - Launch a terminal with "Windows Powershell" as local admin
