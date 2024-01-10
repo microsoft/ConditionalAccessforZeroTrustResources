@@ -106,7 +106,7 @@ Configuration M365TenantConfig
             Credential                               = $Credscredential;
             DisplayName                              = "CA100-Admins-BaseProtection-AllApps-AnyPlatform-MFAANDCompliant";
             Ensure                                   = "Present";
-            ExcludeApplications                      = @("");
+            ExcludeApplications                      = @("d4ebce55-015a-49b5-a083-c84d1797ae8c");
             ExcludeGroups                            = @("CA-BreakGlassAccounts","CA-Persona-Admins-BaseProtection-Exclusions","CA-Persona-Microsoft365ServiceAccounts","CA-Persona-AzureServiceAccounts","CA-Persona-CorpServiceAccounts");
             ExcludeLocations                         = @();
             ExcludePlatforms                         = @();
@@ -361,8 +361,9 @@ Configuration M365TenantConfig
             PersistentBrowserIsEnabled               = $True;
             PersistentBrowserMode                    = "never";
             SignInFrequencyIsEnabled                 = $True;
+            SignInFrequencyInterval                  = "timeBased"
             SignInFrequencyType                      = "hours";
-            SignInFrequencyValue                     = 4;
+            SignInFrequencyValue                     = "4";
             SignInRiskLevels                         = @();
             State                                    = "disabled";
             UserRiskLevels                           = @();
@@ -677,7 +678,7 @@ Configuration M365TenantConfig
             Credential                               = $Credscredential;
             DisplayName                              = "CA300-Externals-BaseProtection-AllApps-AnyPlatform-CompliantorAADHJ";
             Ensure                                   = "Present";
-            ExcludeApplications                      = @();
+            ExcludeApplications                      = @("d4ebce55-015a-49b5-a083-c84d1797ae8c");
             ExcludeGroups                            = @("CA-BreakGlassAccounts","CA-Persona-Externals-BaseProtection-Exclusions");
             ExcludeLocations                         = @();
             ExcludePlatforms                         = @();
@@ -1642,7 +1643,7 @@ Configuration M365TenantConfig
             Credential                               = $Credscredential;
             DisplayName                              = "CA1000-Developers-BaseProtection-AllApps-AnyPlatform-ForwardToDefenderforCloudApps";
             Ensure                                   = "Present";
-            ExcludeApplications                      = @();
+            ExcludeApplications                      = @("d4ebce55-015a-49b5-a083-c84d1797ae8c");
             ExcludeGroups                            = @("CA-BreakGlassAccounts","CA-Persona-Developers-BaseProtection-Exclusions");
             ExcludeLocations                         = @();
             ExcludePlatforms                         = @();
