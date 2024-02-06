@@ -12,6 +12,7 @@ https://docs.microsoft.com/en-us/azure/architecture/guide/security/conditional-a
 - ToolBox folder has a few helper scripts. Open the script for furhter information.
 - Workbooks folder has enhanced workbooks to look at CA policies and compliancy as well as a troubleshooing solution for Always-On VPN including a workbook for that.
 - Presentations folder has a few presentations that I have given about CA configured for Zero Trust
+- ConditionalAccessSamplePoliciesTerraform folder holds sample code to be used from GitHub Actions based on Terraform. Thanks to Suryendu Bhattacharyya, https://www.linkedin.com/in/suryendub/
 
 see other readme files in the sub-folders for further details.
 
