@@ -53,30 +53,6 @@ Configuration M365TenantConfig
             MailNickname         = "CA-Persona-Internals-AppProtection-Exclusions";
             SecurityEnabled      = $True;
         }
-        AADGroup f369f8a9-92eb-40ef-86db-10ad20473165
-        {
-            Credential           = $Credscredential;
-            Description          = "CA-Persona-Admins-Compliance-Exclusions";
-            DisplayName          = "CA-Persona-Admins-Compliance-Exclusions";
-            Ensure               = "Present";
-            GroupTypes           = @();
-            Id                   = "0731b01b-3540-4c7f-9ede-54f0ab0968b0";
-            MailEnabled          = $False;
-            MailNickname         = "CA-Persona-Admins-Compliance-Exclusions";
-            SecurityEnabled      = $True;
-        }
-        AADGroup 780d9a44-7bfd-49e9-83a7-4805f134be72
-        {
-            Credential           = $Credscredential;
-            Description          = "CA-Persona-Guests-BaseProtection-Exclusions";
-            DisplayName          = "CA-Persona-Guests-BaseProtection-Exclusions";
-            Ensure               = "Present";
-            GroupTypes           = @();
-            Id                   = "077cff4d-b51e-49b9-8233-38fbc8d09883";
-            MailEnabled          = $False;
-            MailNickname         = "CA-Persona-Guests-BaseProtection-Exclusions";
-            SecurityEnabled      = $True;
-        }
     
         AADGroup 9a90990c-d8a6-4430-accb-a99b4687e60b
         {
@@ -269,19 +245,6 @@ Configuration M365TenantConfig
             SecurityEnabled      = $True;
         }
         
-        AADGroup 3cacfa14-b336-48a6-9e59-ad78c7e08200
-        {
-            Credential           = $Credscredential;
-            Description          = "CA-Persona-Global-AttackSurfaceReduction-Exclusions";
-            DisplayName          = "CA-Persona-Global-AttackSurfaceReduction-Exclusions";
-            Ensure               = "Present";
-            GroupTypes           = @();
-            Id                   = "70abc3f6-5edf-4f57-a6b4-942d4a820e17";
-            MailEnabled          = $False;
-            MailNickname         = "CA-Persona-Global-AttackSurfaceReduction-Exclusions";
-            SecurityEnabled      = $True;
-        }
-        
         AADGroup ba6ca005-c56a-410a-a7c3-d013360adf22
         {
             Credential           = $Credscredential;
@@ -317,18 +280,6 @@ Configuration M365TenantConfig
             Id                   = "7fc7c22f-3f8a-4f26-a671-e89d0ace2405";
             MailEnabled          = $False;
             MailNickname         = "CA-Persona-GuestAdmins";
-            SecurityEnabled      = $True;
-        }
-        AADGroup ebbbfaf8-d399-4381-995f-2871a2285a95
-        {
-            Credential           = $Credscredential;
-            Description          = "CA-Persona-GuestAdmins-Compliance-Exclusions";
-            DisplayName          = "CA-Persona-GuestAdmins-Compliance-Exclusions";
-            Ensure               = "Present";
-            GroupTypes           = @();
-            Id                   = "7ffcaa31-19a2-4f6b-9d52-618f62e2367a";
-            MailEnabled          = $False;
-            MailNickname         = "CA-Persona-GuestAdmins-Compliance-Exclusions";
             SecurityEnabled      = $True;
         }
         
@@ -394,19 +345,6 @@ Configuration M365TenantConfig
             SecurityEnabled      = $True;
         }
        
-        AADGroup e95a0372-a841-4637-a6b3-ecbb7e2467b9
-        {
-            Credential           = $Credscredential;
-            Description          = "Group used to assign GIT for Windows app.";
-            DisplayName          = "PAW-CSM-Apps-Git-For-Windows-User-Available";
-            Ensure               = "Present";
-            GroupTypes           = @();
-            Id                   = "929efef5-2ba9-4d43-9f1b-999d6111dcff";
-            MailEnabled          = $False;
-            MailNickname         = "PAW-CSM-Apps-Git-For-Windows-User-Available";
-            SecurityEnabled      = $True;
-        }
-        
         AADGroup 0d5decf9-6d35-4fd4-8ced-998771743817
         {
             Credential           = $Credscredential;
@@ -482,31 +420,6 @@ Configuration M365TenantConfig
             MailNickname         = "CA-Persona-CorpServiceAccounts";
             SecurityEnabled      = $True;
         }
-        AADGroup 651d05f1-dd30-4d9c-b795-f6ee7677edf9
-        {
-            Credential           = $Credscredential;
-            Description          = "CA-Persona-On-PremisesServiceAccounts";
-            DisplayName          = "CA-Persona-OnPremisesServiceAccounts";
-            Ensure               = "Present";
-            GroupTypes           = @();
-            Id                   = "a153865d-6027-4d97-9a7b-5726d7ccf672";
-            MailEnabled          = $False;
-            MailNickname         = "CA-Persona-OnPremisesServiceAccounts";
-            SecurityEnabled      = $True;
-        }
-        
-        AADGroup 23d69357-4243-4a03-a824-a24f6e032084
-        {
-            Credential           = $Credscredential;
-            Description          = "Group used to assign VS Code app.";
-            DisplayName          = "PAW-CSM-Apps-VS-Code-User-Available";
-            Ensure               = "Present";
-            GroupTypes           = @();
-            Id                   = "b083e0a2-4cef-4284-b771-0a0a87c67311";
-            MailEnabled          = $False;
-            MailNickname         = "PAW-CSM-Apps-VS-Code-User-Available";
-            SecurityEnabled      = $True;
-        }
         AADGroup 6288497d-ea64-4137-9009-b1804358d3b9
         {
             Credential           = $Credscredential;
@@ -570,86 +483,6 @@ Configuration M365TenantConfig
             SecurityEnabled      = $True;
         }
        
-       
-        AADGroup 32362f5c-9eb9-4401-842d-25e96dc9bbb7
-        {
-            Credential           = $Credscredential;
-            Description          = "CA-Persona-Guests-DataProtection-Exclusions";
-            DisplayName          = "CA-Persona-Guests-DataProtection-Exclusions";
-            Ensure               = "Present";
-            GroupTypes           = @();
-            Id                   = "d34511f4-ff96-41cf-a131-a9fba674d6ac";
-            MailEnabled          = $False;
-            MailNickname         = "CA-Persona-Guests-DataProtection-Exclusions";
-            SecurityEnabled      = $True;
-        }
-        
-        AADGroup a0bbbe48-20c8-4596-a161-a01fc7e2bd7f
-        {
-            Credential                    = $Credscredential;
-            DisplayName                   = "CA-Pesona-GuestUsersAsDynamicGroup";
-            Ensure                        = "Present";
-            GroupTypes                    = @("DynamicMembership");
-            Id                            = "e1f7c2e4-28a2-49c5-9351-0b4cd3bb75e1";
-            MailEnabled                   = $False;
-            MailNickname                  = "CA-Pesona-GuestUsersAsDynamicGroup";
-            MembershipRule                = "(user.objectId -ne null) -and (user.userType -eq `"Guest`")";
-            MembershipRuleProcessingState = "On";
-            SecurityEnabled               = $True;
-        }
-        
-        AADGroup 57637d93-ca17-42ea-a335-37d20ac77125
-        {
-            Credential           = $Credscredential;
-            Description          = "CA-Persona-Internals-AttackSurfaceReduction-Exclusions";
-            DisplayName          = "CA-Persona-Internals-AttackSurfaceReduction-Exclusions";
-            Ensure               = "Present";
-            GroupTypes           = @();
-            Id                   = "e8194b04-6c24-4a30-8ab2-5acbdcc0fe42";
-            MailEnabled          = $False;
-            MailNickname         = "CA-Persona-Internals-AttackSurfaceReduction-Exclusions";
-            SecurityEnabled      = $True;
-        }
-        
-       
-        AADGroup 64b9ebb7-4e24-4f90-8be2-26f33f5157f7
-        {
-            Credential           = $Credscredential;
-            Description          = "CA-Persona-Global";
-            DisplayName          = "CA-Persona-Global";
-            Ensure               = "Present";
-            GroupTypes           = @();
-            Id                   = "f069bf74-2f4b-48bd-9a77-552128fe0db7";
-            MailEnabled          = $False;
-            MailNickname         = "CA-Persona-Global";
-            SecurityEnabled      = $True;
-        }
-        
-        AADGroup 2d959723-ce72-43e2-b14c-54f07ac18ace
-        {
-            Credential           = $Credscredential;
-            Description          = "CA-Persona-GuestAdmins-AttackSurfaceReduction-Exclusions";
-            DisplayName          = "CA-Persona-GuestAdmins-AttackSurfaceReduction-Exclusions";
-            Ensure               = "Present";
-            GroupTypes           = @();
-            Id                   = "f35dac3e-3e20-4344-b9a5-f5d379b308cd";
-            MailEnabled          = $False;
-            MailNickname         = "CA-Persona-GuestAdmins-AttackSurfaceReduction-Exclusions";
-            SecurityEnabled      = $True;
-        }
-        
-        AADGroup 9e6b8742-4c33-4aeb-9faf-2ee3e4076045
-        {
-            Credential           = $Credscredential;
-            Description          = "CA-Persona-Admins-AppProtection-Exclusions";
-            DisplayName          = "CA-Persona-Admins-AppProtection-Exclusions";
-            Ensure               = "Present";
-            GroupTypes           = @();
-            Id                   = "fd5a39c5-231c-4721-8adb-bc06d30f4735";
-            MailEnabled          = $False;
-            MailNickname         = "CA-Persona-Admins-AppProtection-Exclusions";
-            SecurityEnabled      = $True;
-        }
         AADGroup b686aab5-f214-4870-82a5-ec66f1cf0dcc
         {
             Credential           = $Credscredential;
